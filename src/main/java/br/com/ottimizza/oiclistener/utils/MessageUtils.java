@@ -15,11 +15,11 @@ public class MessageUtils {
 		ObjetoArquivoProcessado arquivo = new ObjetoArquivoProcessado();
         String objArquivo = "";
 		message = CleanMessage(message);
-		
+		System.out.println(message);
 		if(message.contains("message")) {
 			String s = message.substring(message.indexOf("message"));
-            if(s.contains("[") && s.contains("]")) {
-                objArquivo = s.substring(s.indexOf("[")+1, s.indexOf("]")).trim();
+            if(s.contains("{") && s.contains("}")) {
+                objArquivo = s.substring(s.indexOf("{"), s.indexOf("}")).trim();
             }
             arquivo = ArquivoProcessadoMapper.objFromJson(new JSONObject(objArquivo.trim()));
 		}
