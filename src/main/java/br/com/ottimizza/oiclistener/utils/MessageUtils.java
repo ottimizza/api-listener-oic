@@ -18,8 +18,8 @@ public class MessageUtils {
 		
 		if(message.contains("message")) {
 			String s = message.substring(message.indexOf("message"));
-            if(s.contains("/")) {
-                objArquivo = s.substring(s.indexOf("["), s.indexOf("]"));
+            if(s.contains("[") && s.contains("]")) {
+                objArquivo = s.substring(s.indexOf("[")+1, s.indexOf("]")).trim();
             }
             arquivo = ArquivoProcessadoMapper.objFromJson(new JSONObject(objArquivo.trim()));
 		}
