@@ -19,8 +19,9 @@ public class MessageUtils {
 		if(message.contains("message")) {
 			String s = message.substring(message.indexOf("message"));
             if(s.contains("{") && s.contains("}")) {
-                objArquivo = s.substring(s.indexOf("[")+1, s.indexOf("]")).trim();
+                objArquivo = s.substring(s.indexOf("{"), s.lastIndexOf("}")).trim();
             }
+			System.out.println(objArquivo);
             arquivo = ArquivoProcessadoMapper.objFromJson(new JSONObject(objArquivo.trim()));
 		}
 		return arquivo;
