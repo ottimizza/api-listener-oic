@@ -17,9 +17,7 @@ public interface ArquivoProcessadoRepository extends JpaRepository<ArquivoProces
 
     @Modifying
 	@Transactional
-	@Query(value = "UPDATE arquivos_processados " 
-					+"	SET integrado_oic = true " 
-					+"	WHERE id = :arquivoId ",nativeQuery = true)
-	void updateIntegradoOic(@Param("arquivoId") BigInteger arquivoId);
+	@Query(value = "UPDATE arquivos_processados SET integrado_oic = true WHERE id = :arquivoId ",nativeQuery = true)
+	void updateIntegradoOic(@Param("arquivoId") BigInteger arquivoId) throws Exception;
 
 }
