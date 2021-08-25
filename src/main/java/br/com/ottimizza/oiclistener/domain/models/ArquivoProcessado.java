@@ -41,7 +41,7 @@ public class ArquivoProcessado implements Serializable {
     @Column(columnDefinition = "jsonb")
     private ObjetoArquivoProcessado objetoArquivoProcessado;
 
-    @Column(name = "itegrado_oic")
-	private boolean itegradoOic;
+    @Column(name = "integrado_oic")
+	private boolean integradoOic;
     
 }

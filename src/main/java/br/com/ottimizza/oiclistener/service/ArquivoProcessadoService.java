@@ -25,7 +25,7 @@ public class ArquivoProcessadoService {
             ObjetoArquivoProcessado obj = MessageUtils.entityFromMessage(message);
             ArquivoProcessado arquivo = ArquivoProcessado.builder()
                                         .objetoArquivoProcessado(obj)
-                                        .itegradoOic(false)
+                                        .integradoOic(false)
                                     .build();
             repository.save(arquivo);
         }
