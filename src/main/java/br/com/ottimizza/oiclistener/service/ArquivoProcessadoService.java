@@ -4,9 +4,6 @@ import java.math.BigInteger;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.ottimizza.oiclistener.domain.dto.ObjetoArquivoProcessado;
@@ -34,18 +31,19 @@ public class ArquivoProcessadoService {
         }
     }
     
-    public JSONObject updateIntegradoOic(BigInteger id) throws Exception {
-		JSONObject response = new JSONObject();
-		try {
+    public String updateIntegradoOic(BigInteger id) throws Exception {
+		StringBuilder retorno = new StringBuilder();
+        try {
 			repository.updateIntegradoOic(id);
-			response.put("status", "Success");
-			response.put("message", "Itens atualizados com sucesso!");
+            retorno.append("{\"status\":\"Success\",");
+            retorno.append("\"message\":\"Item atualizado com sucesso!\"}");
 		} catch (Exception e) {
-			response.put("status", "Error");
-			response.put("message", "Houve um problema ao atualizar!");
-			return response;
+            System.out.println(e.getMessage());
+            retorno.append("{\"status\":\"Error\",");
+            retorno.append("\"message\":\"Houve um problema ao atualizar!\"}");
+			return retorno.toString();
 		}
-		return response;
+		return retorno.toString();
 	}
 
 }

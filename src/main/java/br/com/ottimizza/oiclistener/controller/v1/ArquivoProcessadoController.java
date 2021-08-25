@@ -21,8 +21,8 @@ public class ArquivoProcessadoController {
 
     @PostMapping("/integra_oic/{arquivoId}")
     public ResponseEntity<?> updateIntegradoOic(@PathVariable BigInteger arquivoId) throws Exception {
-        JSONObject response = service.updateIntegradoOic(arquivoId);
-		return (response.get("status") == "Success") ? ResponseEntity.ok(response.toString()) : ResponseEntity.badRequest().build();
+        String response = service.updateIntegradoOic(arquivoId);
+		return ResponseEntity.ok(response.toString());
     }
 
 }
