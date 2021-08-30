@@ -21,7 +21,7 @@ public class ArquivoProcessadoController {
     @Autowired
     ArquivoProcessadoService service;
 
-    @PostMapping("/integra_oic/{arquivoId}")
+    @PostMapping("/integra_oic")
     public ResponseEntity<?> updateIntegradoOic(@RequestBody List<BigInteger> arquivosIds) throws Exception {
         String response = service.updateIntegradoOic(arquivosIds);
 		return ResponseEntity.ok(response.toString());
