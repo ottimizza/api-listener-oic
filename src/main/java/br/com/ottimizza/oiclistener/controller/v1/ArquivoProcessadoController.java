@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +22,7 @@ public class ArquivoProcessadoController {
     ArquivoProcessadoService service;
 
     @PostMapping("/integra_oic/{arquivoId}")
-    public ResponseEntity<?> updateIntegradoOic(@PathVariable List<BigInteger> arquivosIds) throws Exception {
+    public ResponseEntity<?> updateIntegradoOic(@RequestBody List<BigInteger> arquivosIds) throws Exception {
         String response = service.updateIntegradoOic(arquivosIds);
 		return ResponseEntity.ok(response.toString());
     }
