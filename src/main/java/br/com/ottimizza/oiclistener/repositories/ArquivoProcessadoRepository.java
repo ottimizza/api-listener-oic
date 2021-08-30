@@ -1,6 +1,7 @@
 package br.com.ottimizza.oiclistener.repositories;
 
 import java.math.BigInteger;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -17,7 +18,7 @@ public interface ArquivoProcessadoRepository extends JpaRepository<ArquivoProces
 
     @Modifying
 	@Transactional
-	@Query(value = "UPDATE arquivos_processados ap SET integrado_oic = true WHERE ap.id = :arquivoId ",nativeQuery = true)
-	void updateIntegradoOic(@Param("arquivoId") BigInteger arquivoId) throws Exception;
+	@Query(value = "UPDATE arquivos_processados ap SET integrado_oic = true WHERE ap.id IN :arquivosIds ",nativeQuery = true)
+	void updateIntegradoOic(@Param("arquivosIds") List<BigInteger> arquivosIds) throws Exception;
 
 }

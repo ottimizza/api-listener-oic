@@ -1,6 +1,7 @@
 package br.com.ottimizza.oiclistener.controller.v1;
 
 import java.math.BigInteger;
+import java.util.List;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class ArquivoProcessadoController {
     ArquivoProcessadoService service;
 
     @PostMapping("/integra_oic/{arquivoId}")
-    public ResponseEntity<?> updateIntegradoOic(@PathVariable BigInteger arquivoId) throws Exception {
-        String response = service.updateIntegradoOic(arquivoId);
+    public ResponseEntity<?> updateIntegradoOic(@PathVariable List<BigInteger> arquivosIds) throws Exception {
+        String response = service.updateIntegradoOic(arquivosIds);
 		return ResponseEntity.ok(response.toString());
     }
 

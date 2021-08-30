@@ -1,6 +1,7 @@
 package br.com.ottimizza.oiclistener.service;
 
 import java.math.BigInteger;
+import java.util.List;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +32,10 @@ public class ArquivoProcessadoService {
         }
     }
     
-    public String updateIntegradoOic(BigInteger id) throws Exception {
+    public String updateIntegradoOic(List<BigInteger> ids) throws Exception {
 		StringBuilder retorno = new StringBuilder();
         try {
-			repository.updateIntegradoOic(id);
+			repository.updateIntegradoOic(ids);
             retorno.append("{\"status\":\"Success\",");
             retorno.append("\"message\":\"Item atualizado com sucesso!\"}");
 		} catch (Exception e) {
